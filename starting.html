@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasarım Kodlama</title>
+    <style>
+        dialog {
+            padding: 0;
+            border: none;
+            border-radius: 5px;
+            width: 30vw;
+        }
+
+        dialog::backdrop {
+            background: gray;
+        }
+
+        dialog div {
+            border-bottom: 1px solid red;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="ac">Modal Aç</button>
+    <output>Bilgiler</output>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nobis perspiciatis doloremque,
+        nulla voluptate saepe! Cum optio architecto illo, sapiente dolorum atque qui iusto fuga nihil doloribus,
+        cupiditate excepturi?
+    </p>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nobis perspiciatis doloremque,
+        nulla voluptate saepe! Cum optio architecto illo, sapiente dolorum atque qui iusto fuga nihil doloribus,
+        cupiditate excepturi?
+    </p>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nobis perspiciatis doloremque,
+        nulla voluptate saepe! Cum optio architecto illo, sapiente dolorum atque qui iusto fuga nihil doloribus,
+        cupiditate excepturi?
+    </p>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nobis perspiciatis doloremque,
+        nulla voluptate saepe! Cum optio architecto illo, sapiente dolorum atque qui iusto fuga nihil doloribus,
+        cupiditate excepturi?
+    </p>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil cupiditate nobis perspiciatis doloremque,
+        nulla voluptate saepe! Cum optio architecto illo, sapiente dolorum atque qui iusto fuga nihil doloribus,
+        cupiditate excepturi?
+    </p>
+
+    <dialog id="modal">
+        <form method="dialog">
+            <div>
+                <h2>Modal Panel</h2>
+            </div>
+            <div>
+                <p>
+                    Abonelik sözleşmesini kabul etmek için "Tamam" butonuna tıklayın.
+                </p>
+            </div>
+            <div>
+                <menu>
+                    <button value="onay">Tamam</button>
+                    <button value="iptal">İptal</button>
+                </menu>
+            </div>
+        </form>
+    </dialog>
+
+    <script>
+        var modalAc = document.querySelector("#ac");
+        var modal = document.querySelector("#modal");
+        var output = document.querySelector("output");
+
+        modalAc.addEventListener("click", function () {
+            modal.showModal();
+        });
+
+        modal.addEventListener("close", function () {
+            if (modal.returnValue == "onay") {
+                output.value = "abone oldunuz.";
+            } else {
+                output.value = "aboneliginizi iptal ettiniz.";
+            }
+        });
+    </script>
+</body>
+
+</html>
